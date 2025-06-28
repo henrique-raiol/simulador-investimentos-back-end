@@ -1,0 +1,79 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+.tox/
+.coverage
+.coverage.*
+.cache/
+nosetests.xml
+coverage.xml
+htmlcov/
+
+# Translations
+*.mo
+*.pot
+
+# Flask stuff:
+.flaskenv
+
+# Jupyter Notebook / IPython
+.ipynb_checkpoints
+.ipython/
+.jupyter/
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Log
+log/
+
+# VS Code
+.vscode/
+# Exceções para VS Code, se você quiser manter alguns arquivos de configuração específicos do projeto no controle de versão
+# !.vscode/settings.json
+# !.vscode/tasks.json
+# !.vscode/launch.json
+# !.vscode/extensions.json
+
+# PyCharm / IntelliJ IDEA (ou qualquer IDE JetBrains)
+.idea/
+
+# Editors
+*.swp
+*~
+# macOS
+.DS_Store
+# Windows
+Thumbs.db
