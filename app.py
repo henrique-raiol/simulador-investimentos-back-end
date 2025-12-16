@@ -1,6 +1,6 @@
 from flask_openapi3 import OpenAPI, Info, Tag
 from flask import redirect
-from schemas import SimulacaoViewSchema, ErrorSchema, SimulacaoCalculoSchema, SimulacaoOperacaoConcluidaSchema, SimulacaoSalvarSchema, ListagemSimulacoesSchema, SimulacaoBuscaSchema, SimulacaoDelSchema, SimulacaoSalvaViewSchema
+from schemas import SimulacaoViewSchema, ErrorSchema, SimulacaoCalculoSchema, SimulacaoOperacaoConcluidaSchema, SimulacaoSalvarSchema, ListagemSimulacoesSchema, SimulacaoBuscaSchema, SimulacaoDelSchema, SimulacaoSalvaViewSchema, ListagemTaxaSchema
 from controller import executores, buscadores
 from flask_cors import CORS
 
@@ -28,7 +28,7 @@ def rota_calculo_simulacao(form: SimulacaoCalculoSchema):
 
     return executores.executa_calculo_simulacao(form)
 
-@app.post('/salva_simulacao', tags=[simulacao_tag], responses={"200": SimulacaoOperacaoConcluidaSchema, "409": ErrorSchema, "400": ErrorSchema})
+@app.put('/salva_simulacao', tags=[simulacao_tag], responses={"200": SimulacaoOperacaoConcluidaSchema, "409": ErrorSchema, "400": ErrorSchema})
 def rota_salva_simulacao(form: SimulacaoSalvarSchema):
     ''' Adiciona uma nova simulação à base de dados
         Retorna uma mensagem confirmando a operação
@@ -62,3 +62,10 @@ def rota_deleta_simulacao(query: SimulacaoBuscaSchema):
     '''
 
     return executores.deletar_simulacao(query)
+
+@app.get('/obter_taxas', tags=[simulacao_tag], responses={"200": ListagemTaxaSchema, "400": ErrorSchema})
+def rota_obter_taxas():
+    ''' Retorna todas as taxas/indice para fazer simulação
+    '''
+
+    return buscadores.obter_lista_taxas()

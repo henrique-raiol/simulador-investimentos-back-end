@@ -1,7 +1,7 @@
 # Simulador de Investimentos
 ### Por Paulo Henrique Raiol
 
-Este projeto de back-end compõe a entrega do MVP da sprint de Desenvolvimento Full Satck Básico da Curso de Engenharia de Software da PUC-Rio.
+Este projeto de back-end compõe a entrega do MVP da sprint de Desenvolvimento Full Satck da Curso de Engenharia de Software da PUC-Rio.
 
 O objetivo deste projeto é a **realização do cálculo de rentabilidade futura** de investimentos em renda fixa com evolução mensal. Utilizando variáveis como aporte inicial, aporte mensal, taxa de juros ao ano, prazo em meses ou anos e estimativa de gastos mensais.
 

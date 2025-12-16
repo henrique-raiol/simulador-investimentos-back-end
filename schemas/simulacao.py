@@ -45,6 +45,13 @@ class ListagemSimulacoesSchema(BaseModel):
     simulacoes:List[SimulacaoSalvarSchema]
 
 
+class ListagemTaxaSchema(BaseModel):
+    ''' Define como uma listagem de taxas/indices será retornada.
+    '''
+
+    taxas:List[dict]
+
+
 def apresenta_simulacoes(simulacoes: List[Simulacao]):
     ''' Retorna uma representação das simulações salvas seguindo o schema definido em SimulacaoSalvaViewSchema.
     '''

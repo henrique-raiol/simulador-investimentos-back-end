@@ -1,6 +1,7 @@
 from schemas import apresenta_simulacoes, SimulacaoBuscaSchema, apresenta_simulacao
 from logger import logger
 from model import Session, Simulacao
+from services import obter_meta_selic, obter_cdi_acumulado_12
 
 def obter_lista_simulacoes():
     ''' Faz a busca por todas as Simulações cadastradas
@@ -40,6 +41,22 @@ def obter_simulacao(query: SimulacaoBuscaSchema):
         logger.debug(f"Simulacao econtrada: '{simulacao.id}'")
         # retorna a representação da simulação
         return apresenta_simulacao(simulacao), 200
+
+def obter_lista_taxas():
+    ''' Faz a busca por todas as taxas disponíveis
+    '''
+    try:
+        logger.debug(f"Coleta de taxas iniciada.")
+        selic = obter_meta_selic()[0]
+        cdi = obter_cdi_acumulado_12()[0]
+        logger.debug(f"Coleta de taxas finalizada.")
+
+        return {"taxas": [selic,cdi,]}, 200
+    except Exception as e:
+        # caso um erro fora do previsto
+        error_msg = f"Não foi possível obter lista de taxas. {e}"
+        logger.warning(f"Erro. {error_msg}")
+        return {"error_code": 400, "message": error_msg}, 400
     
 if __name__ == '__main__':
     pass
