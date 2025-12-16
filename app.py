@@ -30,7 +30,7 @@ def rota_calculo_simulacao(form: SimulacaoCalculoSchema):
 
 @app.put('/salva_simulacao', tags=[simulacao_tag], responses={"200": SimulacaoOperacaoConcluidaSchema, "409": ErrorSchema, "400": ErrorSchema})
 def rota_salva_simulacao(form: SimulacaoSalvarSchema):
-    ''' Adiciona uma nova simulação à base de dados
+    ''' Adiciona ou atualiza uma simulação na base de dados
         Retorna uma mensagem confirmando a operação
     '''
 
@@ -57,7 +57,7 @@ def get_simulacao(query: SimulacaoBuscaSchema):
 
 @app.delete('/deleta_simulacao', tags=[simulacao_tag], responses={"200": SimulacaoDelSchema, "404": ErrorSchema})
 def rota_deleta_simulacao(query: SimulacaoBuscaSchema):
-    ''' Deleta uma simulação a partir do nome do investidor informado
+    ''' Deleta uma simulação a partir do id do investidor informado
         Retorna uma mensagem de confirmação da remoção.
     '''
 
